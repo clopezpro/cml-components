@@ -57,13 +57,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
-/* default */
-/* .icon {
-  fill: currentColor;
-} */
-
-/* sizes */
+<style lang="postcss" scoped>
 .icon.is-large {
   @apply h-20 w-20;
 }

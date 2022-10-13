@@ -1,19 +1,44 @@
 <script setup>
   import { VButton } from './components/';
+  import { Icons } from './components/';
+  import { inputVue } from './components/';
+  import {ref} from 'vue';
+  const inputVal = ref('');
 </script>
 
 <template>
-  <VButton
-    class="
-      py-2
-      px-4
-      font-semibold
-      rounded-lg
-      shadow-md
-      text-white
-      bg-green-500
-      hover:bg-green-700
-    "
-    >My Button</VButton
-  >
+  <div class="flex justify-center">
+      <div class="w-1/2">
+          <VButton
+          
+          >My Button</VButton
+        >
+            <Icons name="adjustments">
+    
+            </Icons>
+    
+            <div class="flex">
+                <inputVue
+                  v-model="inputVal"
+                  name="pruebas"
+                  type="text"
+                  class="w-1/2"
+                  name_icon="adjustments"
+                  placeholder="pruebas"
+                  label="pruebas"
+                  :btn="{
+                    active: true,
+                    name_icon: 'plus',
+                    title: 'pruebas',
+                  }"
+            
+                >
+                </inputVue>
+                <div class="w-1/2">
+                  TEXT: {{inputVal}}
+                </div>
+            </div>
+      </div>
+  </div>
+  
 </template>
