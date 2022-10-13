@@ -1,25 +1,29 @@
 {
 	"name": "cml-components",
 	"private": false,
-	"version": "0.0.1",
+	"version": "0.1.1",
 	"files": [
 		"dist"
 	],
 	"main": "./dist/cml-components.umd.js",
 	"module": "./dist/cml-components.es.js",
-  "keywords": [
-    "vue 3 components",
-    "input",
-    "buttons",
-    "autocomplete",
-    "components"
-  ],
+	"keywords": [
+		"vue 3 components",
+		"input",
+		"buttons",
+		"autocomplete",
+		"components"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/cml-components.es.js",
 			"require": "./dist/cml-components.umd.js"
 		},
 		"./dist/style.css": "./dist/style.css"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/clopezpro/cml-components.git"
 	},
 	"scripts": {
 		"dev": "vite",
@@ -31,9 +35,9 @@
 	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^3.1.0",
-		"vite": "^3.1.0",
 		"autoprefixer": "^10.4.12",
 		"postcss": "^8.4.18",
-		"tailwindcss": "^3.1.8"
+		"tailwindcss": "^3.1.8",
+		"vite": "^3.1.0"
 	}
 }
