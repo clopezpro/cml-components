@@ -1,22 +1,22 @@
 <template>
 	<div class="dark:bg-dark-2 bg-gray-200 rounded-md rounded-b-none">
-		<label :for="id" v-if="label != ''" class="flex  text-gray-700 dark:text-gray-300 align-middle text-xs ml-1">{{
+		<label :for="id" v-if="label != ''" class="flex  text-gray-700 dark:text-gray-200 align-middle text-xs ml-1">{{
 			label
 		}}</label>
 		<div class="flex">
 			<div
 				v-if="name_icon != ''"
-				class="flex-nowrap flex items-center justify-center"
+				class="flex-nowrap flex items-center justify-center dark:text-gray-200"
 			>
-				<icon-vue :name="name_icon"></icon-vue>
+				<icon-vue :name="name_icon" ></icon-vue>
 			</div>
 			<input
 				v-if="type != 'textarea'"
 				:id="id"
-				class="form_imput w-full md:py-2 md:px-4 md:text-md text-xs"
+				class="form_input w-full md:py-2 md:px-4 md:text-md text-xs"
 				:value="modelValue"
 				@input="emitValue('modelValue', $event)"
-				:class="{ 'form_imput-right': btn.active }"
+				:class="{ 'form_input-right': btn.active }"
 				:autocomplete="!autocomplete ? 'off' : 'true'"
 				:maxlength="maxlength"
 				:name="name"
@@ -26,10 +26,10 @@
 			<textarea
 				v-if="type == 'textarea'"
 				:id="id"
-				class="form_imput w-full md:py-2 md:px-4 md:text-md text-xs"
+				class="form_input w-full md:py-2 md:px-4 md:text-md text-xs"
 				:value="modelValue"
 				@input="(event) => $emit('update:modelValue', event.target.value)"
-				:class="{ 'form_imput-right': btn.active }"
+				:class="{ 'form_input-right': btn.active }"
 				:autocomplete="!autocomplete ? 'off' : 'true'"
 				:maxlength="maxlength"
 				:cols="cols"
