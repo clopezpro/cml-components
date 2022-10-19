@@ -6,6 +6,7 @@ export { default as inputVue } from "./inputVue.vue";
 export { default as Modal } from "./modal.vue";
 export { default as inputDateRange } from "./inputDateRangeVue.vue";
 export { default as selectVue } from "./selectVue.vue";
+export { default as checkVue } from "./checkVue.vue";
 export { default as tab } from "./tabVue.vue";
 export { default as tabs } from "./tabsVue.vue";
 
