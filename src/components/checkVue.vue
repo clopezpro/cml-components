@@ -31,3 +31,8 @@ export default {
 	},
 };
 </script>
+<style lang="postcss" scoped>
+.form-check-input:checked[type="checkbox"] {
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3E%3C/svg%3E");
+	}
+</style>

@@ -37,6 +37,7 @@
 <script>
 import { watch, ref, toRef } from "vue";
 import IconVue from "./icons.vue";
+
 export default {
 	name: "selectVue",
 	components: {
@@ -125,3 +126,12 @@ export default {
 	},
 };
 </script>
+<style lang="postcss" scoped>
+.form_input-select{
+	@apply 
+    dark:text-indigo-300 dark:bg-slate-800 
+}
+.form_input-right {
+	@apply border-r-0  rounded-r-none !important;
+}
+</style>

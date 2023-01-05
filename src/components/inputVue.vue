@@ -99,3 +99,19 @@ export default {
 	},
 };
 </script>
+<style lang="postcss" scoped>
+	.form_input {
+	@apply appearance-none border-2 
+    rounded-sm
+    bg-white
+    focus:bg-white 
+    focus:border-gray-500  
+    leading-tight 
+    focus:outline-none
+    dark:text-indigo-300
+    border-gray-200
+    dark:border-gray-600
+    dark:bg-dark-1 
+    dark:focus:bg-dark-2;
+}
+</style>

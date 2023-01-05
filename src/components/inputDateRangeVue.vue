@@ -86,3 +86,40 @@ export default {
 	},
 };
 </script>
+
+<style lang="postcss" scoped>
+.input_date::-webkit-calendar-picker-indicator {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+.input_date::-webkit-datetime-edit-text {
+	color: red;
+	padding: 0 0.2em;
+}
+.input_date::-webkit-datetime-edit-month-field {
+	@apply text-gray-400;
+}
+.input_date::-webkit-datetime-edit-day-field {
+	@apply text-gray-400;
+}
+.input_date::-webkit-datetime-edit-year-field {
+	@apply text-gray-400;
+}
+	.form_input {
+	@apply appearance-none border-2 
+    rounded-sm
+    bg-white
+    focus:bg-white 
+    focus:border-green-500  
+    leading-tight 
+    focus:outline-none
+    dark:text-indigo-300
+    border-gray-200
+    dark:border-gray-600
+    dark:bg-dark-1 
+    dark:focus:bg-dark-2;
+}
+.form_input-select{
+	@apply 
+    dark:text-indigo-300 dark:bg-slate-800 
+}
+</style>

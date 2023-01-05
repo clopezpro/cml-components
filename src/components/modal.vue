@@ -14,7 +14,7 @@
 				:class="[...getStyleClasses(), color, { 'h-fit mt-1 ': !centerModal }]"
 				class="modal relative cursor-auto w-full bg-white shadow-lg dark:bg-dark-1 dark:text-gray-100"
 			>
-				<div class="dark:border-b dark:border-b-gray-600">
+				<div class="border-b dark:border-b-gray-600 border-b-slate-200">
                     <div class="mx-2">{{ title }}</div>
                     <button
                             aria-label="close"
@@ -96,3 +96,24 @@ export default {
 	},
 };
 </script>
+<style lang="postcss" scoped>
+.modal.is-md {
+	@apply max-w-2xl !important;
+}
+.modal.is-lg {
+	@apply max-w-4xl !important;
+}
+.modal.is-xl {
+	@apply w-screen h-screen !important;
+}
+.modal .fade-enter,
+.modal .fade-leave-to {
+	opacity: 0;
+}
+.modal.success {
+	@apply border-green-800 border;
+}
+.modal.error {
+	@apply border-red-800 border-2 bg-red-50 !important;
+}
+</style>

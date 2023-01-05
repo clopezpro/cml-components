@@ -34,14 +34,9 @@
                   name="pruebas"
                   type="text"
                   class="w-1/2"
-                  name_icon="adjustments"
                   placeholder="pruebas"
-                  label="pruebas"
-                  :btn="{
-                    active: true,
-                    name_icon: 'plus',
-                    title: 'pruebas',
-                  }"
+               
+                 
             
                 >
                 </inputVue>

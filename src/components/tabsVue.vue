@@ -6,7 +6,7 @@
 			<div class="-mb-px flex">
 				<a
 					v-for="(tab, i) in tabs"
-					class="cursor-pointer p-1 bg-slate-700 border-b rounded-t-md rounded-l-none border-b-gray-400 dark:text-gray-900 text-center text-xs uppercase"
+					class="cursor-pointer p-1 bg-slate-700 border-b rounded-t-md rounded-l-none border-b-gray-400 dark:text-gray-900 text-gray-100 text-center text-xs uppercase"
 					:class="{ activeTab: selected == tab.name, activeTabFirst: i == 0 }"
 					:ref="tab.name"
 					@click.prevent="selectTab(tab)"
@@ -56,4 +56,23 @@ export default {
 	},
 };
 </script>
-
+<style lang="postcss" scoped>
+.activeTab {
+	@apply 
+        bg-slate-900 
+        border-2
+        mr-0 
+        rounded-l-none
+        shadow-md
+        border-b-0  
+        border-t-gray-400
+        border-l-gray-400
+        border-r-gray-400
+        border-gray-700  
+        dark:text-green-400   
+     !important;
+}
+.activeTabFirst {
+	@apply border-l-0 rounded-l-none;
+}
+</style>

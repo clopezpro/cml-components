@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+
 import {inject} from 'vue' 
   export default {
     props: {
