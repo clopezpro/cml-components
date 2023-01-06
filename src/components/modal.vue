@@ -7,7 +7,7 @@
 				'items-center h-screen inset-0': centerModal,
 				'h-full': !centerModal,
 			}"
-			class="fixed z-20 w-full flex-wrap flex justify-center bg-bg-semi-75 overflow-y-auto"
+			class="modal_container"
 			@click.self="clickOut"
 		>
 			<div
@@ -97,6 +97,9 @@ export default {
 };
 </script>
 <style lang="postcss" scoped>
+.modal_container{
+	@apply fixed z-20 w-full flex-wrap flex justify-center bg-bg-semi-75 overflow-y-auto;
+}
 .modal.is-md {
 	@apply max-w-2xl !important;
 }
