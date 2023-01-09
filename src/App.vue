@@ -24,8 +24,9 @@
           
           >My Button</VButton
         >
-            <Icons name="adjustments">
-    
+        ssss
+            <Icons name="navigate-gps" class="h-30 font-bold">
+              ss
             </Icons>
     
             <div class="flex">
@@ -96,6 +97,7 @@
                   </div>
                 </tab>
             </tabs>
+            
       </div>
 
   </div>
