@@ -1,36 +1,49 @@
 <template>
+	<!-- <pre>
+		{{ icon }}
+	</pre> -->
 	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
+		:xmlns="icon.xmlns || `http://www.w3.org/2000/svg`"
+		:viewBox="icon.viewBox || `0 0 24 24` "
+		:stroke-width="icon.strokeWidth || `1.5`"
 		class="icon"
 		:class="[getStyleClasses(), getStyleClassesPrse()]"
 		role="img"
-		stroke="currentColor"
-		fill="none"
-	>
-		<title>{{ title || name }}</title>
-		<desc v-if="desc">{{ desc }}</desc>
-		<path
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="2"
-			v-for="(path, index) in getPath()"
+		:stroke="icon.currentColor || `currentColor`"
+		:fill="icon.fill ||  `none`"
+	>		
+		<path v-for="(path, index) in icon.paths || []"
 			:key="index"
-			:d="path"
-		/>
+			:d="path.path || path"
+			:viewBox="path.viewBox || `0 0 24 24`"
+			:stroke-linecap="path.strokeLinecap || `round`"
+			:stroke-linejoin="path.strokeLinejoin || `round`"
+			:stroke-width="path.strokeWidth || `2`"
+
+		>
+
+		</path>
 		<line
-			v-for="(line, index) in getLines()"
+			v-for="(line, index) in icon.lines || []"
 			:key="index"
 			:x1="line.x1"
 			:y1="line.y1"
 			:x2="line.x2"
 			:y2="line.y2"
 		/>
-	</svg>
+		<polygon
+			v-for="(points, index) in icon.polygon || []"
+			:key="index"
+			:points="points.points || points"
+			:stroke-width="points.strokeWidth || `2` "
+		/>
+	</svg> 
+	
 </template>
 
 <script>
 import icons from "./icons.json";
+import { ref } from "vue";
 
 export default {
 	name: "AppIcon",
@@ -42,33 +55,32 @@ export default {
 		title: String,
 		desc: String,
 	},
-	methods: {
-		getPath() {
-			if (!icons[this.name]) {
-				return icons["heart"].paths;
-			}
-			return icons[this.name].paths || [];
-		},
-		getLines() {
-			if (!icons[this.name]) {
-				return [];
-			}
-			return icons[this.name].lines || [];
-		},
-		getStyleClasses() {
-			if (this.getStyleClassesPrse() == "") {
-				return [this.size, this.color].map((val) => val && `is-${val}`);
+	setup(props, context){
+		const icon=ref(icons[props.name] || icons["heart"]);
+
+		const getStyleClasses=()=> {
+			if (getStyleClassesPrse() == "") {
+				return [props.size, props.color].map((val) => val && `is-${val}`);
 			} else {
 				return "";
 			}
-		},
-		getStyleClassesPrse() {
-			return this.class;
-		},
+		}
+		const getStyleClassesPrse=()=> {
+			return props.class;
+		}
+		return {
+			icon,
+			getStyleClasses,
+			getStyleClassesPrse
+		}
 	},
+
 };
 </script>
 <style lang="postcss" scoped>
+.icon {
+	@apply inline-block ;
+}
 .icon.is-large {
 	@apply h-20 w-20;
 }

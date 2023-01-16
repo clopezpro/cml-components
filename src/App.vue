@@ -25,8 +25,16 @@
           >My Button</VButton
         >
         ssss
-            <Icons name="navigate-gps" class="h-30 font-bold">
-              ss
+            <Icons name="navigation_round" class="w-5 h-5 font-bold">
+            </Icons>
+             <Icons name="map-pin" class="w-5 h-5 font-bold">
+            </Icons>  
+            <Icons name="map-pin_2" class="w-5 h-5 font-bold">
+            </Icons> 
+            <Icons name="device-phone-mobile" class="w-5 h-5 font-bold">
+            </Icons>
+            <Icons name="cog-6-tooth" class="w-3 h-3 font-bold">
+
             </Icons>
     
             <div class="flex">
