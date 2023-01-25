@@ -276,6 +276,8 @@
 	"arrow-circle-up": {
 		"paths": ["M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"]
 	},
+
+
 	"eye": {
 		"paths": [
 			"M15 12a3 3 0 11-6 0 3 3 0 016 0z",
@@ -489,6 +491,37 @@
 					"stroke-linecap": "round"
 				}
 			}
+		]
+	},	
+	"arrows-up-down": {
+		"stroke-width": "1.5",
+		"stroke": "currentColor",
+		"fill": "none",
+		"paths": [
+			{
+				"path": "M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5",
+				"attributtes": {
+					"stroke-linejoin": "round",
+					"stroke-linecap": "round"
+				}
+			}
+			
+		]
+	},
+
+	"arrows-right-left": {
+		"stroke-width": "1.5",
+		"stroke": "currentColor",
+		"fill": "none",
+		"paths": [
+			{
+				"path": "M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5",
+				"attributtes": {
+					"stroke-linejoin": "round",
+					"stroke-linecap": "round"
+				}
+			}
+			
 		]
 	},
 
