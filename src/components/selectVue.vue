@@ -1,41 +1,42 @@
 <template>
-	<div class="dark:bg-dark-2 bg-gray-200 rounded-md">
+	<div class="content_select">
 		<label :for="id" v-if="label != ''" class="flex align-middle text-xs ml-1 dark:text-gray-200">{{
 			label
 		}}</label>
-		<div class="flex">
+		<div style="display:flex">
 			<div
 				v-if="name_icon != ''"
-				class="flex-nowrap flex items-center justify-center dark:text-gray-200"
+				class="icon_select"
 			>
 				<icon-vue :name="name_icon" ></icon-vue>
 			</div>
-			<select v-model="valueLocal" :class="getStyleClasses()">
+			<select v-model="valueLocal" class="input_select" :class="classSelect">
 				<option v-if="options.length == 0" value="">NO EXISTEN {{ name }}`s</option>
-				<option v-else disabled selected :value="null">
+				<!-- <option v-else disabled selected :value="null">
 					Selecciona una opción
-				</option>
-				<option v-if="defaultValue && options.length > 0" value="">
-					SELECCIONE {{ name }}
+				</option> -->
+				<option v-if="placeholder && options.length > 0" value="" disabled>
+					{{ placeholder }}
 				</option>
 				<option v-for="(option, i) in options" :value="getValue(option)" :key="i">
 					{{ showOption(option) }}
 				</option>
 			</select>
 			<button
-				v-if="btn.active"
+				v-if="btn"
 				type="button"
 				@click="$emit('btnClick')"
-				:title="btn.title_btn"
-				class="flex-1 h-8 md:h-10 border border-gray-600 rounded-r-md bg-gray-800 hover:bg-blue-600"
+				:title="btn.title"
+				class="btn_select"
+				:class="btn.class || ''"
 			>
-				<icon-vue name="plus" :title="btn.title || 'btn'"></icon-vue>
+				<icon-vue :name="btn.icon || 'plus'" :title="btn.title || 'btn'"></icon-vue>
 			</button>
 		</div>
 	</div>
 </template>
 <script>
-import { watch, ref, toRef } from "vue";
+import { watch, ref, toRef,computed } from "vue";
 import IconVue from "./icons.vue";
 
 export default {
@@ -47,14 +48,13 @@ export default {
 		name_icon: { type: String, default: "", required: false },
 		defaultValue: { type: String, default: null, required: false },
 		modelValue: { default: "", required: false },
+		placeholder: { type: String, default: false, required: false },
 		label: { type: String, default: "", required: false },
 		name: String,
 		size: { type: String, default: null, required: false },
 		btn: {
 			type: Object,
-			default() {
-				return {};
-			},
+			default:null,
 		},
 		options: {
 			type: Array,
@@ -109,29 +109,45 @@ export default {
 				emit("update:modelValue", valueLocal.value);
 			}
 		});
-		const getStyleClasses = () => {
-			let clase = "w-full form_input-select  ";
-			if (props.btn.active) clase += "form_input-right ";
-			switch (props.size) {
-				case "small":
-					clase += " text-xs py-2 px-1";
-					break;
-				default:
-					clase += " py-1 px-2";
-					break;
-			}
-			return clase;
-		};
-		return { valueLocal, getValue, showOption, getStyleClasses, id };
+
+		const classSelect = computed(() => {
+			return {
+				"input_select-btn": props.btn ,
+				"input_select-placeholder": props.placeholder && (props.modelValue=='' || props.modelValue==null) ,
+				"input_select-small":props.size=='small' ,
+				"input_select-right": props.btn.active,
+			};
+		});
+		return { valueLocal, getValue, showOption, classSelect, id };
 	},
 };
 </script>
 <style lang="postcss" scoped>
-.form_input-select{
-	@apply 
-    dark:text-indigo-300 dark:bg-slate-800 
+
+.input_select-small{
+	@apply text-xs py-2 px-1
 }
-.form_input-right {
+.input_select-right {
 	@apply border-r-0  rounded-r-none !important;
 }
+.input_select-placeholder{
+	@apply text-gray-400 !important;
+}
+.input_select{
+	@apply  w-full dark:text-indigo-300 dark:bg-slate-800 dark:border-t dark:border-gray-700  py-1 px-2 border-b rounded-r-md dark:border-b-gray-700
+}
+.input_select-btn{
+	@apply border-r-0  rounded-r-none !important;
+}
+.icon_select{
+	@apply flex-nowrap flex items-center justify-center dark:text-gray-200;
+}
+.btn_select{
+	@apply flex-1 h-8 md:h-10 border border-gray-300 rounded-r-md bg-gray-300 border-l-0  dark:border-gray-700 dark:bg-gray-800 hover:bg-gray-600;
+}
+.content_select{
+	@apply dark:bg-dark-2 bg-gray-200 rounded-md
+}
+
+
 </style>

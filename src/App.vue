@@ -7,6 +7,7 @@
   import { selectVue } from './components/';
   import { tab,tabs } from './components/';
   import {ref,reactive} from 'vue';
+  import { useDark, useToggle } from '@vueuse/core'
   const inputVal = ref('');
   const formFilter=reactive({
     tab:'tab1',
@@ -15,6 +16,11 @@
     to:'',
   });
   const open=ref(false);
+  
+  
+  const isDark = useDark()
+  const toggleDark = useToggle(isDark)	
+
 </script>
 
 <template>
@@ -25,7 +31,9 @@
           >My Button</VButton
         >
         ssss
-            <Icons name="navigation_round" class="w-5 h-5 font-bold">
+            <Icons name="navigation_round" class="w-5 h-5 font-bold text-green-600">
+            </Icons>
+            <Icons name="arrows-up-down" class="w-5 h-5 font-bold">
             </Icons>
              <Icons name="map-pin" class="w-5 h-5 font-bold">
             </Icons>  
@@ -40,16 +48,23 @@
             <div class="flex">
                 <inputVue
                   v-model="inputVal"
-                  name="pruebas"
-                  type="text"
+                  name="Pruebas"
+                  icon="x"
+                  label="Pruebas"
                   class="w-1/2"
-                  placeholder="pruebas"
-               
-                 
-            
+                  :rules="[
+                    (v) => !!v || 'Campo requerido',
+                    (v) => (v && v.length <= 10) || 'Maximo 10 caracteres',
+                  ]"
+                  placeholder="Pruebas"
+                  :btn="{
+                      icon:'x',
+                      class:'bg-red-500',
+                      title:'Limpiar'
+            }"
                 >
                 </inputVue>
-                <div class="w-1/2">
+                <div class="w-1/4">
                   TEXT: {{inputVal}}
                 </div>
             </div>
@@ -78,9 +93,10 @@
                     {{formFilter}}
                   </pre>
       </div>
-      <div>
+      <div class="w-1/4">
+        <p>SELECT</p>
 
-        <selectVue
+         <selectVue
 						:options="[
 							{ _id: '1', name: 'MASCULINO' },
 							{ _id: '2', name: 'FEMENINO' },
@@ -88,11 +104,22 @@
 						]"
 						:label="`Genero`"
 						v-model="formFilter.select"
+            placeholder="PILAS"
+            :btn="{
+                      icon:'x',
+                      class:'bg-red-500',
+                      title:'Limpiar'
+            }"
 						name_icon="switch-vertical"
 						name="Genero"
 						class="w-full"
 					>
 					</selectVue>
+
+      </div>
+      <div>
+
+       
           	<tabs v-model:selected="formFilter.tab">
                 <tab name="tab1">
                   <div class="flex">
@@ -107,7 +134,15 @@
             </tabs>
             
       </div>
-
+      <button @click="toggleDark()">
+			Is Dark: {{ isDark }}
+		</button>
   </div>
   
 </template>
+<style>
+html.dark{
+  background-color: #091a28;
+  color: #ebf4f1;
+}
+</style>
