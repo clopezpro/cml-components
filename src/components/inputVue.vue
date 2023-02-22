@@ -18,7 +18,8 @@
 				:value="modelValue"
 				@input="emitValue('modelValue', $event)"
 				:class="classInput"
-				:autocomplete="!autocomplete ? 'off' : 'true'"
+				:disabled="disabled"
+				:autocomplete="!autocomplete ? autocomplete : 'true'"
 				:maxlength="maxlength"
 				:name="name"
 				:type="type"
@@ -31,7 +32,7 @@
 				:value="modelValue"
 				@input="(event) => $emit('update:modelValue', event.target.value)"
 				:class="{ 'input_vue-right': btn.active }"
-				:autocomplete="!autocomplete ? 'off' : 'true'"
+				:autocomplete="!autocomplete ? autocomplete : 'true'"
 				:maxlength="maxlength"
 				:cols="cols"
 				:rows="rows"
@@ -84,7 +85,8 @@ export default {
 		rows: { type: String, default: "1", required: false },
 		label: { type: String, default: "", required: false },
 		type: { type: String, default: "text", required: false },
-		autocomplete: { type: Boolean, default: false, required: false },
+		autocomplete: { type: String, default: undefined, required: false },
+		disabled: { type: Boolean, default: undefined, required: false },
 		placeholder: { type: String, default: "", required: false },
 		name: { type: String, default: "", required: false },
 		error: { type: Boolean, default:  undefined, required: false },
@@ -136,6 +138,7 @@ export default {
 <style lang="postcss" scoped>
 	.input_vue {
 			@apply appearance-none border 
+			h-fit
 			w-full
 			rounded-sm
 			pl-1
@@ -150,8 +153,6 @@ export default {
 			dark:border-gray-600
 			dark:bg-dark-1 
 			dark:focus:bg-dark-2
-			
-			
 	}
 	.input_vue-btn{
 		@apply rounded-r-sm;
@@ -182,13 +183,13 @@ export default {
 		@apply left-6;
 	}
 	.content_input{
-		@apply dark:bg-dark-2 bg-gray-200 rounded-md rounded-b-none relative   
+		@apply dark:bg-dark-2 bg-gray-200 rounded-md rounded-b-none relative  h-fit  dark:border-b  dark:border-gray-700 rounded-r-md ;
 	}
 	
 	.icon_input{
 		@apply  items-center justify-center dark:text-green-200 flex;
 	}
 	.btn_input{
-		@apply flex-1 h-8 md:h-10 border border-gray-300 rounded-r-md bg-gray-300 border-l-0  dark:bg-gray-800 hover:bg-gray-600 ;
+		@apply flex-1 h-8 md:h-10 border border-gray-300 dark:rounded-r-md bg-gray-300 border-l-0  dark:border-gray-700 dark:bg-gray-800 hover:bg-gray-600;
 	}
 </style>

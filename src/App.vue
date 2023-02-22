@@ -26,10 +26,77 @@
 <template>
   <div class="flex justify-center">
       <div class="w-1/2">
+        <p>BOTONES</p>
+        <div class="flex ">
           <VButton
+            class="m-1"
+           @click="toggleDark()"
+          >
+              <div>
+                <Icons name="search"/>
+              </div>
+              <div>
+                Buscar           
+              </div> 
+           </VButton>
+            <VButton
+              class="h-auto m-1"
+              color="green"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton> 
+            <VButton
+              class="h-auto m-1"
+              color="blue"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton> 
+            <VButton
+              class="h-auto m-1"
+              color="orange"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton> 
+            <VButton
+              class="h-auto m-1"
+              color="purple"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton>     
+            <VButton
+              class="h-auto m-1"
+              color="yellow"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton>
+            <VButton
+              class="h-auto m-1"
+              color="gray"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton> 
+            <VButton
+              class="h-auto m-1"
+              color="white"
+            >
+                <div>
+                  <Icons name="search"/>
+                </div>
+            </VButton>
+        </div>
           
-          >My Button</VButton
-        >
         ssss
             <Icons name="navigation_round" class="w-5 h-5 font-bold text-green-600">
             </Icons>
@@ -64,7 +131,7 @@
             }"
                 >
                 </inputVue>
-                <div class="w-1/4">
+                <div class="w-1/4 h-20">
                   TEXT: {{inputVal}}
                 </div>
             </div>
