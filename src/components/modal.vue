@@ -98,7 +98,7 @@ export default {
 </script>
 <style lang="postcss" scoped>
 .modal_container{
-	@apply fixed z-20 top-0 w-full flex-wrap flex justify-center bg-bg-semi-75 overflow-y-auto;
+	@apply fixed z-20 top-0 bottom-0 w-full flex-wrap flex justify-center bg-bg-semi-75 overflow-y-auto;
 }
 .modal_content{
 	@apply  relative cursor-auto w-full bg-white shadow-lg dark:bg-dark-1 dark:text-gray-100;

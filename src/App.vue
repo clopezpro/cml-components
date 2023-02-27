@@ -16,6 +16,7 @@
     to:'',
   });
   const open=ref(false);
+  const open2=ref(false);
   
   
   const isDark = useDark()
@@ -223,8 +224,24 @@
                 size="md"
               >
                 <template #body>
-                    <div class="flex">
+                    <div >
                       <h1>HOLA MUNDO </h1>
+                      <div>
+                        <button @click="open2=true">OPEN 2 </button>
+                      </div>
+
+                      
+                    </div>
+                </template>
+      </Modal>
+      <Modal
+                title="pruebas"
+                v-model:showing="open2"
+                size="md"
+              >
+                <template #body>
+                    <div class="flex">
+                      <h1>HOLA MUNDO 22 </h1>
                     </div>
                 </template>
       </Modal>
