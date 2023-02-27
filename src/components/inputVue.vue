@@ -153,6 +153,8 @@ export default {
 			dark:border-gray-600
 			dark:bg-dark-1 
 			dark:focus:bg-dark-2
+			dark:autofill:text-indigo-300
+		
 	}
 	.input_vue-btn{
 		@apply rounded-r-sm;
@@ -192,4 +194,7 @@ export default {
 	.btn_input{
 		@apply flex-1 h-8 md:h-10 border border-gray-300 dark:rounded-r-md bg-gray-300 border-l-0  dark:border-gray-700 dark:bg-gray-800 hover:bg-gray-600;
 	}
+	
+	
+	
 </style>
