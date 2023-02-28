@@ -6,19 +6,19 @@
                     <h2 :class="getClassTitle" class="title_alert ">
                         <IconVue 
                             name="shield-exclamation"    
-                            class="h-10 w-10 text-red-600"
+                            class="iconAlert  is_error "
                         v-if="props.type=='error'">
                         
                         </IconVue>  
                         <IconVue 
                             name="clipboard-document"    
-                            class="h-10 w-10 text-blue-600 text-opacity-30"
+                            class="iconAlert is_info"
                         v-if="props.type=='info'">
                         
                         </IconVue>   
                         <IconVue 
                             name="check"    
-                            class="h-10 w-10 text-green-600 text-opacity-60"
+                            class="iconAlert is_success"
                         v-if="props.type=='success'">
                         
                         </IconVue>   
@@ -89,6 +89,18 @@ const getClassTitle = computed(() => {
 });
 </script>
 <style lang="postcss">
+.iconAlert{
+    @apply h-10 w-10;
+}
+.iconAlert.is_info{
+    @apply text-blue-600 text-opacity-30;
+}
+.iconAlert.is_error{
+    @apply text-red-600 ;
+}
+.iconAlert.is_success{
+    @apply text-green-600 text-opacity-60 ;
+}
 .btn_close_content{
     @apply flex justify-end
 }
