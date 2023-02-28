@@ -6,6 +6,7 @@
   import { inputDateRange } from './components/';
   import { selectVue } from './components/';
   import { tab,tabs } from './components/';
+  import { alertVue } from './components/';
   import {ref,reactive} from 'vue';
   import { useDark, useToggle } from '@vueuse/core'
   const inputVal = ref('');
@@ -17,7 +18,7 @@
   });
   const open=ref(false);
   const open2=ref(false);
-  
+  const alert=ref(false);
   
   const isDark = useDark()
   const toggleDark = useToggle(isDark)	
@@ -159,7 +160,7 @@
                   </div>
               </div>
               
-              <button @click="open=true">
+              <button @click="alert=true">
                 openModal 
               </button>
   
@@ -245,6 +246,14 @@
                     </div>
                 </template>
       </Modal>
+     <pre>{{ alert }}</pre>  
+      <alertVue
+        v-model:showing="alert"
+        title="Alerta"
+        message="HOLA ESTO ES PRUEBAS"
+        type="success"
+        
+      ></alertVue>
     </teleport>
     
   </main>

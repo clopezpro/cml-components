@@ -125,7 +125,19 @@ export default {
 .modal_content.success {
 	@apply border-green-800 border;
 }
+.modal_content.danger {
+	@apply  border-red-800 border;
+}
+.modal_content.danger {
+	@apply  border-red-800 border;
+}
+.modal_content.info {
+	@apply  border-blue-600 border-opacity-30 border;
+}
 .modal_content.error {
-	@apply border-red-800 border-2 bg-red-50 !important;
+	@apply  border-red-800 border;
+}
+.modal_content.error {
+	@apply  border-red-800 border;
 }
 </style>

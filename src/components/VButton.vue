@@ -26,6 +26,14 @@
         dark:hover:bg-green-600 
          
 
+    } 
+    .btnVue.is-red{
+        @apply    bg-red-500 
+        hover:bg-red-400 
+        dark:bg-red-500 
+        dark:hover:bg-red-600 
+         
+
     }
     .btnVue.is-blue{
         @apply bg-blue-600 
@@ -72,7 +80,7 @@
 
 
     .btnVue{
-        @apply dark:text-gray-800  
+        @apply dark:text-gray-900  
        
         text-opacity-90 
         bg-purple-500 

@@ -9,5 +9,6 @@ export { default as selectVue } from "./selectVue.vue";
 export { default as checkVue } from "./checkVue.vue";
 export { default as tab } from "./tabVue.vue";
 export { default as tabs } from "./tabsVue.vue";
+export { default as alertVue } from "./alertVue.vue";
 
 // Other components you plan to publish go here
