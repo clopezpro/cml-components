@@ -100,7 +100,7 @@
               </VButton>
           </div>
             
-          ssss
+             Estos iconos  -->
               <Icons name="navigation_round" class="w-5 h-5 font-bold text-green-600">
               </Icons>
               <Icons name="arrows-up-down" class="w-5 h-5 font-bold">
@@ -114,7 +114,7 @@
               <Icons name="cog-6-tooth" class="w-3 h-3 font-bold">
   
               </Icons>
-      
+              son los de https://heroicons.com/
               <div class="flex">
                   <inputVue
                     v-model="inputVal"
