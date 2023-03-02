@@ -101,6 +101,8 @@
           </div>
             
              Estos iconos  -->
+              <Icons name="mail" class="w-5 h-5 font-bold text-green-600">
+              </Icons>   
               <Icons name="navigation_round" class="w-5 h-5 font-bold text-green-600">
               </Icons>
               <Icons name="arrows-up-down" class="w-5 h-5 font-bold">
